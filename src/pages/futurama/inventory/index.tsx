@@ -1,9 +1,12 @@
 import type { NextPage } from "next";
+import { InventoryContainer } from "../../../components";
 
 const InventoryPage: NextPage = () => {
+  const path = "inventory";
+
   return (
     <div>
-      <h1>Inventory</h1>
+      <InventoryContainer path={path} />
     </div>
   );
 };

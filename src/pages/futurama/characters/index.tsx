@@ -1,9 +1,12 @@
 import type { NextPage } from "next";
+import { CharactersContainer } from "../../../components";
 
 const CharactersPage: NextPage = () => {
+  const path = "characters";
+
   return (
     <div>
-      <h1>Characters</h1>
+      <CharactersContainer path={path} />
     </div>
   );
 };
