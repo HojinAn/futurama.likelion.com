@@ -9,7 +9,7 @@ export const ROUTES = [
   {
     ID: 1,
     PATH: "/characters",
-    LABEL: "Chracters",
+    LABEL: "Characters",
   },
   {
     ID: 2,
