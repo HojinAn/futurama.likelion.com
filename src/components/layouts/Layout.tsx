@@ -1,12 +1,11 @@
-export const Navigation = () => {
+import React from "react";
+import { Navigation } from ".";
+
+export const Layout: React.FC = ({ children }) => {
   return (
-    <header>
-      <h1>Wine and Beers</h1>
-      <nav>
-        <ul>
-          <li>list</li>
-        </ul>
-      </nav>
-    </header>
+    <div>
+      <Navigation />
+      <main>{children}</main>
+    </div>
   );
 };
