@@ -2,6 +2,7 @@ import { Error, Loading } from "..";
 import { useFuturamaData } from "../../hooks/useFuturamaData";
 import { InfoCard } from "./InfoCard";
 import { Info } from "../../types/Info";
+import styled from "@emotion/styled";
 
 interface FuturamaProps {
   path: string;
@@ -14,15 +15,19 @@ export const InfoContainer = ({ path }: FuturamaProps) => {
   if (!data) return <Loading />;
 
   return (
-    <div>
-      <h1>{path}</h1>
-      <main>
+    <InfoSection>
+      <h2> &gt; {path}</h2>
+      <section>
         {data.map((infoData: Info) => {
           return (
             <InfoCard key={`${path}-list-${infoData.id}`} infoData={infoData} />
           );
         })}
-      </main>
-    </div>
+      </section>
+    </InfoSection>
   );
 };
+
+const InfoSection = styled.section`
+  padding: 1rem;
+`;
