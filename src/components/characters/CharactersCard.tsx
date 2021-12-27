@@ -1,3 +1,4 @@
+import styled from "@emotion/styled";
 import Image from "next/image";
 import { Characters } from "../../types/Characters";
 
@@ -20,7 +21,7 @@ export const CharactersCard = ({ charactersData }: CharactersProps) => {
   const fullName = `${first} ${middle} ${last}`;
 
   return (
-    <div>
+    <CharacterInfo>
       <p>{fullName}</p>
       <img src={main} alt={fullName}></img>
       <p>{gender}</p>
@@ -29,6 +30,16 @@ export const CharactersCard = ({ charactersData }: CharactersProps) => {
       <p>{occupation}</p>
       <p>{age}</p>
       <p>{sayings[Math.floor(Math.random() * sayings.length)]}</p>
-    </div>
+    </CharacterInfo>
   );
 };
+
+const CharacterInfo = styled.article`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1em;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 1em;
+`;

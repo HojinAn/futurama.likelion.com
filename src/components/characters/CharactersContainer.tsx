@@ -2,6 +2,7 @@ import { Error, Loading } from "..";
 import { useFuturamaData } from "../../hooks/useFuturamaData";
 import { CharactersCard } from "./CharactersCard";
 import { Characters } from "../../types/Characters";
+import styled from "@emotion/styled";
 
 interface FuturamaProps {
   path: string;
@@ -14,9 +15,9 @@ export const CharactersContainer = ({ path }: FuturamaProps) => {
   if (!data) return <Loading />;
 
   return (
-    <div>
-      <h1>{path}</h1>
-      <main>
+    <CharactersSection>
+      <h2> &gt; {path}</h2>
+      <CharactersCardContainer>
         {data.map((charactersData: Characters) => {
           return (
             <CharactersCard
@@ -25,7 +26,17 @@ export const CharactersContainer = ({ path }: FuturamaProps) => {
             />
           );
         })}
-      </main>
-    </div>
+      </CharactersCardContainer>
+    </CharactersSection>
   );
 };
+
+const CharactersSection = styled.section`
+  margin: 1rem;
+`;
+
+const CharactersCardContainer = styled.section`
+  display: grid;
+  margin: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+`;
