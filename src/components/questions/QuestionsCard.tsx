@@ -10,6 +10,10 @@ export const QuestionsCard = ({ questionsData }: QuestionsProps) => {
   return (
     <div>
       <p>{question}</p>
+      <p>{possibleAnswers[0]}</p>
+      <p>{possibleAnswers[1]}</p>
+      <p>{possibleAnswers[2]}</p>
+      <p>{possibleAnswers[3]}</p>
       <p>{corretAnswer}</p>
     </div>
   );

@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { InventoryContainer } from "../../../components";
+import { InventoryContainer } from "../../components";
 
 const InventoryPage: NextPage = () => {
   const path = "inventory";

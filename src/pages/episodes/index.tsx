@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { EpisodesContainer } from "../../../components";
+import { EpisodesContainer } from "../../components";
 
 const EpisodesPage: NextPage = () => {
   const path = "episodes";

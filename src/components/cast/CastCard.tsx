@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Cast } from "../../types/Cast";
 
 interface CastProps {
@@ -8,17 +9,17 @@ export const CastCard = ({ castData }: CastProps) => {
   const {
     name,
     born,
-    died,
-    bio: { text, url },
+    bio: { url },
   } = castData;
 
   return (
     <div>
-      <p>{name}</p>
-      <p>{born}</p>
-      <p>{died}</p>
-      <p>{text}</p>
-      <p>{url}</p>
+      <Link href={url}>
+        <a>
+          <p>{name}</p>
+          <p>{born}</p>
+        </a>
+      </Link>
     </div>
   );
 };

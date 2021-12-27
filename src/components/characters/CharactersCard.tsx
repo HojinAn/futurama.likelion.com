@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Characters } from "../../types/Characters";
 
 interface CharactersProps {
@@ -16,22 +17,18 @@ export const CharactersCard = ({ charactersData }: CharactersProps) => {
     age,
   } = charactersData;
 
+  const fullName = `${first} ${middle} ${last}`;
+
   return (
     <div>
-      <p>
-        {first}
-        {middle}
-        {last}
-      </p>
-      <p>
-        {"head-shot"}
-        {main}
-      </p>
+      <p>{fullName}</p>
+      <img src={main} alt={fullName}></img>
       <p>{gender}</p>
       <p>{species}</p>
       <p>{homePlanet}</p>
       <p>{occupation}</p>
       <p>{age}</p>
+      <p>{sayings[Math.floor(Math.random() * sayings.length)]}</p>
     </div>
   );
 };
