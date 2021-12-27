@@ -2,6 +2,7 @@ import { Error, Loading } from "..";
 import { useFuturamaData } from "../../hooks/useFuturamaData";
 import { CastCard } from "./CastCard";
 import { Cast } from "../../types/Cast";
+import styled from "@emotion/styled";
 
 interface FuturamaProps {
   path: string;
@@ -14,15 +15,25 @@ export const CastContainer = ({ path }: FuturamaProps) => {
   if (!data) return <Loading />;
 
   return (
-    <div>
-      <h1>{path}</h1>
-      <main>
+    <CastSection>
+      <h2> &gt; {path}</h2>
+      <CastCardContainer>
         {data.map((castData: Cast) => {
           return (
             <CastCard key={`${path}-list-${castData.id}`} castData={castData} />
           );
         })}
-      </main>
-    </div>
+      </CastCardContainer>
+    </CastSection>
   );
 };
+
+const CastSection = styled.section`
+  margin: 1rem;
+`;
+
+const CastCardContainer = styled.section`
+  display: grid;
+  margin: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+`;

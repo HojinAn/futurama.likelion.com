@@ -2,6 +2,7 @@ import { Error, Loading } from "..";
 import { useFuturamaData } from "../../hooks/useFuturamaData";
 import { InventoryCard } from "./InventoryCard";
 import { Inventory } from "../../types/Inventory";
+import styled from "@emotion/styled";
 
 interface FuturamaProps {
   path: string;
@@ -14,9 +15,9 @@ export const InventoryContainer = ({ path }: FuturamaProps) => {
   if (!data) return <Loading />;
 
   return (
-    <div>
-      <h1>{path}</h1>
-      <main>
+    <InventorySection>
+      <h2> &gt; {path}</h2>
+      <InventoryCardContainer>
         {data.map((inventoryData: Inventory) => {
           return (
             <InventoryCard
@@ -25,7 +26,17 @@ export const InventoryContainer = ({ path }: FuturamaProps) => {
             />
           );
         })}
-      </main>
-    </div>
+      </InventoryCardContainer>
+    </InventorySection>
   );
 };
+
+const InventorySection = styled.section`
+  margin: 1rem;
+`;
+
+const InventoryCardContainer = styled.section`
+  display: grid;
+  margin: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+`;
